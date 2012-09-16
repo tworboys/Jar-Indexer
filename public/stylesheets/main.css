@@ -1,0 +1,44 @@
+body, html  {
+  background-color: #0073b2;
+  font-family: "Courier New";
+  height: 98.5%;
+}
+div   {
+  background-color: #89FA8B; 
+  border-radius: 15px;
+  margin-left: 100px;
+  margin-right: 100px;
+  box-shadow: 3px 3px 20px 6px #000000;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+img.logo {
+  width: 150px;
+}
+td.logo {
+  padding-right: 15px;
+}
+td.class {
+  padding-right: 50px;
+}
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.results {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+h1 {
+  font-family: "Arial";
+}
+tr.lastrow td {
+  border-bottom: 1px solid #000000;
+}
+p.foundmessage {
+  margin-left: 25px;
+}
+p.nofoundmessage {
+  text-align: center;
+}

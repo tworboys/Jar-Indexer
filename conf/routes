@@ -3,7 +3,10 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                           controllers.JarIndex.index()
 
 # Map static resources from the /public folder to the /assets URL path
+POST    /                           controllers.JarIndex.search()
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+GET     /help                       controllers.Application.index()

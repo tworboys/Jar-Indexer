@@ -1,0 +1,71 @@
+@(found: Boolean, classes : Array[String], jars : Array[Array[String]], formClassQuery: Form[ClassQuery])
+
+@import helper._
+@import play._
+
+@main("LinkedIn Jar Indexer") {
+<div >
+  <table>
+    <tr>
+      <td class="logo"><img src="@routes.Assets.at("/images/linkedin-logo.png")" class="logo"></td>
+      <td><h1 align="center">Jar Indexer</h1></td>
+    </tr>
+  </table>
+
+  @form(routes.JarIndex.search()) {
+    <table>
+      <tr>
+      <td><b>Class:</b></td>
+      <td><input type="text" id="searchString" name="searchString" value="@formClassQuery.value().getOrElse(new ClassQuery()).getSearchString()" placeholder="com.linkedin.Class"></td>
+      <td><input type="submit" value="Search" /></td>
+      </tr>
+    </table>
+  }
+
+  @if(jars.length <= 0) {
+    <p class="nofoundmessage">
+    <b>
+    @if(formClassQuery.value().getOrElse(new ClassQuery()).getSearchString() == null || "".equals(formClassQuery.value().getOrElse(new ClassQuery()).getSearchString())) {
+      Please enter a class to search for.
+    } else {
+      No results found.
+    }
+    </b>
+    </p>
+  } else {
+    <br>
+    <br>
+    <br>
+    <p class="foundmessage">
+    <b>
+    @if(found) {
+      The following results for your query have been found:
+    } else {
+      No results were found for your query, but here are some similar results:
+    }
+    </b>
+    </p>
+    <table class="results">
+      <tr>
+        <td><b>Class Name</b></td>
+        <td><b>Jar File Location</b></td>
+      </tr>
+      @for(i <- 0 to (classes.length - 1)) {
+        @for(j <- 0 to (jars(i).length - 1)) {
+          @if(j == jars(i).length - 1){
+          <tr class="lastrow">
+          } else {
+          <tr>
+          }
+            <td class="class">@if(j == 0){ 
+                @classes(i)
+              } 
+            </td>
+            <td>@jars(i)(j)</td>
+          </tr>
+        }
+      }
+    </table>
+  }    
+</div>
+}
