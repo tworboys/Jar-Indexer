@@ -22,7 +22,7 @@
     </table>
   }
 
-  @if(jars.length <= 0) {
+  @if(jars == null || jars.length <= 0) {
     <p class="nofoundmessage">
     <b>
     @if(formClassQuery.value().getOrElse(new ClassQuery()).getSearchString() == null || "".equals(formClassQuery.value().getOrElse(new ClassQuery()).getSearchString())) {

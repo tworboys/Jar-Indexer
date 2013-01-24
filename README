@@ -1,4 +1,12 @@
-This is your new Play 2.0 application
-=====================================
+Jar Indexer:
+============
 
-This file will be packaged with your application, when using `play dist`.
+This is a jar indexer that indexes jars from a specific location on the filesystem and has a web front end that allows you to search for what jar you require if you want to import a specific class in your project.
+
+System Requirements:
+--------------------
+-The play framework ( http://www.playframework.org/ )
+
+How to run:
+-----------
+In the root directory type play run.
